@@ -293,7 +293,9 @@ html(lang='en')
                 table(class=(loopTable === 0 ? '' : 'padding-table'))
                     tr
                         th=table_description
+                        if (table_total_taxes !== null) {
                         th=table_tax
+                        }
                         th=table_price_without_taxes_unit
                         th=table_quantity
                         th=table_price_without_taxes
@@ -309,7 +311,9 @@ html(lang='en')
                         - for(var row = 0; row <= rowPerPage; row++) {
                         tr
                             td #{articles[rowCounter] && articles[rowCounter].description ? articles[rowCounter].description : ''}
+                            if (table_total_taxes !== null) {
                             td #{articles[rowCounter] && articles[rowCounter].tax ? articles[rowCounter].tax + '%': ''}
+                            }
                             td #{articles[rowCounter] && articles[rowCounter].price ? articles[rowCounter].price : ''}
                             td #{articles[rowCounter] && articles[rowCounter].qt ? articles[rowCounter].qt : ''}
                             td #{articles[rowCounter] && articles[rowCounter].total_product_without_taxes ? articles[rowCounter].total_product_without_taxes : ''}
@@ -329,11 +333,13 @@ html(lang='en')
                         tr
                             td=table_total_without_taxes
                             td=table_total_without_taxes_value
+                        if (table_total_taxes !== null) {
                         tr
                             td=table_total_taxes
                             td=table_total_taxes_value
                         tr
                             td=table_total_with_taxes
                             td=table_total_with_taxes_value
+                        }
             #footer
                 p!=footer
