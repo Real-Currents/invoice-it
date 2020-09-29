@@ -186,8 +186,6 @@ export default class Generator extends Common {
           tmp[i].tax = this.formatOutputNumber(tmp[i].tax);
           this.total_inc_taxes += Number(tmp[i].total_product_with_taxes);
           this.total_taxes += Number(tmp[i].total_product_taxes);
-        } else if (tmp[i].date) {
-          this.date = tmp[i].date;
         }
 
         tmp[i].price = this.formatOutputNumber(tmp[i].price);
@@ -203,8 +201,6 @@ export default class Generator extends Common {
         tmp.tax = this.formatOutputNumber(tmp.tax);
         this.total_inc_taxes += Number(tmp.total_product_with_taxes);
         this.total_taxes += Number(tmp.total_product_taxes);
-      } else if (tmp.date) {
-        this.date = tmp.date;
       }
 
       tmp.price = this.formatOutputNumber(tmp.price);
