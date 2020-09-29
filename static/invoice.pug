@@ -146,8 +146,12 @@ html(lang='en')
                 padding: 1px 4px;
             }
 
-            #items > table th:nth-child(2), #items > table th:nth-child(4) {
-                width: 45px;
+            #items > table th {
+                width: 80px;
+            }
+
+            #items > table th:nth-child(2) {
+                width: 80px;
             }
 
             #items > table th:nth-child(3) {
@@ -156,6 +160,10 @@ html(lang='en')
 
             #items > table th:nth-child(5) {
                 width: 80px;
+            }
+
+            #items > table th:nth-child(4) {
+                width: 45px;
             }
 
             #items > table tr td:not(:first-child) {
@@ -328,8 +336,8 @@ html(lang='en')
                         - rowCounter++
                         - }
 
-                        if loopTable > 0
-                            div(style='page-break-after:always')
+                        //if loopTable > 0
+                        //    div(style='page-break-after:always')
                 - }
 
             #summary
