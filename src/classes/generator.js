@@ -180,14 +180,13 @@ export default class Generator extends Common {
         this._checkArticle(tmp[i]);
 
         tmp[i].total_product_without_taxes = this.formatOutputNumber(tmp[i].price * tmp[i].qt);
-        if (!!tmp[i].tax) {
+        if (tmp[i].tax) {
           tmp[i].total_product_taxes = this.formatOutputNumber(this.round(tmp[i].total_product_without_taxes * (tmp[i].tax / 100)));
           tmp[i].total_product_with_taxes = this.formatOutputNumber(this.round(Number(tmp[i].total_product_without_taxes) + Number(tmp[i].total_product_taxes)));
           tmp[i].tax = this.formatOutputNumber(tmp[i].tax);
           this.total_inc_taxes += Number(tmp[i].total_product_with_taxes);
           this.total_taxes += Number(tmp[i].total_product_taxes);
-
-        } else if (!!tmp[i].date) {
+        } else if (tmp[i].date) {
           this.date = tmp[i].date;
         }
 
@@ -198,14 +197,13 @@ export default class Generator extends Common {
       this._checkArticle(tmp);
 
       tmp.total_product_without_taxes = this.formatOutputNumber(tmp.price * tmp.qt);
-      if (!!tmp.tax) {
+      if (tmp.tax) {
         tmp.total_product_taxes = this.formatOutputNumber(this.round(tmp.total_product_without_taxes * (tmp.tax / 100)));
         tmp.total_product_with_taxes = this.formatOutputNumber(this.round(Number(tmp.total_product_without_taxes) + Number(tmp.total_product_taxes)));
         tmp.tax = this.formatOutputNumber(tmp.tax);
         this.total_inc_taxes += Number(tmp.total_product_with_taxes);
         this.total_taxes += Number(tmp.total_product_taxes);
-
-      } else if (!!tmp.date) {
+      } else if (tmp.date) {
         this.date = tmp.date;
       }
 
@@ -286,6 +284,7 @@ export default class Generator extends Common {
       table_quantity: i18n.__({phrase: 'table_quantity', locale: this.lang}),
       table_price_without_taxes: i18n.__({phrase: 'table_price_without_taxes', locale: this.lang}),
       table_price_without_taxes_unit: i18n.__({phrase: 'table_price_without_taxes_unit', locale: this.lang}),
+      table_date: i18n.__({phrase: 'table_date', locale: this.lang}),
       table_note: i18n.__({phrase: 'table_note', locale: this.lang}),
       table_total_without_taxes: i18n.__({phrase: 'table_total_without_taxes', locale: this.lang}),
       table_total_taxes: i18n.__({phrase: 'table_total_taxes', locale: this.lang}),
@@ -294,6 +293,8 @@ export default class Generator extends Common {
       fromto_mail: i18n.__({phrase: 'fromto_mail', locale: this.lang}),
       footer: this.getFooter(),
       emitter_name: this.emitter().name,
+      emitter_first_name: this.emitter().first_name,
+      emitter_last_name: this.emitter().last_name,
       emitter_street_number: this.emitter().street_number,
       emitter_street_name: this.emitter().street_name,
       emitter_zip_code: this.emitter().zip_code,
@@ -313,8 +314,8 @@ export default class Generator extends Common {
       recipient_mail: this.recipient().mail,
       articles: this.article,
       table_total_without_taxes_value: this.formatOutputNumber(this.total_exc_taxes),
-      table_total_taxes_value: (!!this.total_taxes) ? this.formatOutputNumber(this.total_taxes) : null,
-      table_total_with_taxes_value: (!!this.total_inc_taxes) ? this.formatOutputNumber(this.total_inc_taxes) : null,
+      table_total_taxes_value: (this.total_taxes) ? this.formatOutputNumber(this.total_taxes) : null,
+      table_total_with_taxes_value: (this.total_inc_taxes) ? this.formatOutputNumber(this.total_inc_taxes) : null,
       template_configuration: this._templateConfiguration(),
       moment: moment(),
     };
