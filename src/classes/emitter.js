@@ -4,6 +4,9 @@ export default class Emitter extends Common {
   constructor(emitter) {
     super();
     this.name = (emitter) ? emitter.name : '';
+    this.first_name = (emitter) ? emitter.first_name : '';
+    this.last_name = (emitter) ? emitter.last_name : '';
+    this.name = (emitter) ? emitter.name : '';
     this.street_number = (emitter) ? emitter.street_number : '';
     this.street_name = (emitter) ? emitter.street_name : '';
     this.zip_code = (emitter) ? emitter.zip_code : '';
@@ -20,6 +23,22 @@ export default class Emitter extends Common {
 
   set name(value) {
     this._company_name = value;
+  }
+
+  get first_name() {
+    return this._first_name;
+  }
+
+  set first_name(value) {
+    this._first_name = value;
+  }
+
+  get last_name() {
+    return this._last_name;
+  }
+
+  set last_name(value) {
+    this._last_name = value;
   }
 
   get street_number() {
@@ -87,6 +106,6 @@ export default class Emitter extends Common {
   }
 
   _itemsToHydrate() {
-    return ['name', 'street_number', 'street_name', 'zip_code', 'city', 'country', 'phone', 'mail', 'website'];
+    return ['name', 'first_name', 'last_name', 'street_number', 'street_name', 'zip_code', 'city', 'country', 'phone', 'mail', 'website'];
   }
 }
