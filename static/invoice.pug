@@ -271,8 +271,9 @@ html(lang='en')
                         br
                         |       #{emitter_street_number} #{emitter_street_name}
                         br
-                        |       #{emitter_zip_code} #{emitter_city}
+                        |       #{emitter_city}
                         br
+                        |       #{emitter_country}        #{emitter_zip_code}
                         br
                         |       #{emitter_phone ? fromto_phone : ''} #{emitter_phone}
                         br
@@ -285,8 +286,9 @@ html(lang='en')
                         br
                         |       #{recipient_street_number} #{recipient_street_name}
                         br
-                        |       #{recipient_zip_code} #{recipient_city}
+                        |       #{recipient_city}
                         br
+                        |       #{recipient_country} #{recipient_zip_code}
                         br
                         |       #{recipient_phone ? fromto_phone : ''} #{recipient_phone}
                         br
