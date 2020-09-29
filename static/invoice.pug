@@ -268,8 +268,7 @@ html(lang='en')
                 #reference
                     h3
                         strong=invoice_header_subject
-                    h4 #{invoice_header_reference_value}
-                    p #{header_date}
+                    h4 #{header_date}
             #fromto
                 #from
                     p
@@ -357,4 +356,5 @@ html(lang='en')
                         //        td=table_total_with_taxes
                         //        td=table_total_with_taxes_value
             #footer
+                p #{invoice_header_reference_value}
                 p!=footer
